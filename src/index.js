@@ -58,7 +58,7 @@ response.data.daily.forEach(function (day, index) {
   if (index < 5) {
     forecastHtml += (
       <div class="weather-forecast-day">
-        <div class="weather-forecast-date">${formatDay(day.time)}</div>
+        <div class="weather-forecast-date">${formattedDay(day.time)}</div>
 
         <img src="${day.condition.icon_url}" class="weather-forecast-icon" />
         <div class="weather-forecast-temperatures">
