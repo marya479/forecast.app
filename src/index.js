@@ -52,22 +52,13 @@ function formatDate(date) {
   let formattedDay = days[day];
   return `${formattedDay} ${hours}:${minutes}`;
 }
-
-let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", search);
-
-let currentDateELement = document.querySelector("#current-date");
-let currentDate = new Date();
-
-currentDateELement.innerHTML = formatDate(currentDate);
-
 function displayForecast() {
   let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
   let forecastHtml = "";
 
   days.forEach(function (day) {
-    apiUrl =
-      apiUrl +
+    forecastHtml =
+      forecastHtml +
       `
       <div class="weather-forecast-day">
         <div class="weather-forecast-date">${day}</div>
@@ -86,8 +77,11 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHtml;
 }
 
-let searchFormElement = document.querySelector("#search-form");
-searchFormElement.addEventListener("submit", handleSearchSubmit);
-
-searchCity("Paris");
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", search);
 displayForecast();
+
+let currentDateELement = document.querySelector("#current-date");
+let currentDate = new Date();
+
+currentDateELement.innerHTML = formatDate(currentDate);
