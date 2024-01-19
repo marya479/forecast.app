@@ -52,11 +52,11 @@ function formatDate(date) {
   let formattedDay = days[day];
   return `${formattedDay} ${hours}:${minutes}`;
 }
+let forecastHtml = "";
+
 response.data.daily.forEach(function (day, index) {
-    if (index < 5) {
-      forecastHtml =
-        forecastHtml +
-        `
+  if (index < 5) {
+    forecastHtml += (
       <div class="weather-forecast-day">
         <div class="weather-forecast-date">${formatDay(day.time)}</div>
 
@@ -65,18 +65,17 @@ response.data.daily.forEach(function (day, index) {
           <div class="weather-forecast-temperature">
             <strong>${Math.round(day.temperature.maximum)}º</strong>
           </div>
-          <div class="weather-forecast-temperature">${Math.round(
-            day.temperature.minimum
-          )}º</div>
+          <div class="weather-forecast-temperature">
+            ${Math.round(day.temperature.minimum)}º
+          </div>
         </div>
       </div>
-    `;
-    }
-  });
+    );
+  }
+});
 
-   let forecastElement = document.querySelector("#forecast");
-  forecastElement.innerHTML = forecastHtml; 
-}
+let forecastElement = document.querySelector("#forecast");
+forecastElement.innerHTML = forecastHtml;
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
