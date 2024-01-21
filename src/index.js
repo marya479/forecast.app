@@ -52,28 +52,26 @@ function formatDate(date) {
   let formattedDay = days[day];
   return `${formattedDay} ${hours}:${minutes}`;
 }
-function displayForecast(response) {
+function showForecast(response) {
   let forecastHtml = "";
 
   response.data.daily.forEach(function (day, index) {
-    if (index < 5) {
+    if (index > 0 && index < 6) {
       forecastHtml =
         forecastHtml +
-        `
-      <div class="weather-forecast-day">
-        <div class="weather-forecast-date">${formatDay(day.time)}</div>
-
-        <img src="${day.condition.icon_url}" class="weather-forecast-icon" />
-        <div class="weather-forecast-temperatures">
-          <div class="weather-forecast-temperature">
-            <strong>${Math.round(day.temperature.maximum)}º</strong>
-          </div>
-          <div class="weather-forecast-temperature">${Math.round(
-            day.temperature.minimum
-          )}º</div>
+        `<div class="daily-temp">
+          <div class="forecast-date">${setDay(day.time)}</div>
+          <img src="${day.condition.icon_url}"class="forecast-icon""/>
+          <div class="forecast-temp">
+              <span class="max-temp">
+              <strong>${Math.round(day.temperature.maximum)}°</strong>
+              </span>
+              <span class="min-temp">${Math.round(
+                day.temperature.minimum
+              )}°</span>
+           </div>
         </div>
-      </div>
-    `;
+        `;
     }
   });
 
