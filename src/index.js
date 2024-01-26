@@ -98,6 +98,15 @@ function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = forecastHtml;
 }
+
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", search);
+
+let currentDateElement = document.querySelector("#current-date");
+let currentDate = new Date();
+
+currentDateElement.innerHTML = formatDate(currentDate);
+
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
