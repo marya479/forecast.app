@@ -86,13 +86,7 @@ function displayForecast(response) {
 
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = forecastHtml;
-}
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
 displayForecast();
-
-let currentDateELement = document.querySelector("#current-date");
-let currentDate = new Date();
-
-currentDateELement.innerHTML = formatDate(currentDate);
