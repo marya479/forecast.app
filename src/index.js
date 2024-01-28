@@ -27,7 +27,7 @@ function searchCity(city) {
 }
 
 function formatDate(date) {
-  let minutes = date.gfunction refreshWeather(response) {
+  let minutes = date.getMinutes();
   let temperatureElement = document.querySelector("#temperature");
   let temperature = response.data.temperature.current;
   let cityElement = document.querySelector("#city");
